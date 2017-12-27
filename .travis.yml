@@ -1,0 +1,22 @@
+sudo: false
+language: node_js
+
+env:
+  - CXX=g++-4.8
+
+node_js:
+  - 4
+  - 6
+  - 8
+  - stable
+
+services:
+  - mongodb
+  - redis
+
+before_install:
+  - $CXX --version
+
+script: make test-cov
+
+after_success: npm i codecov && codecov

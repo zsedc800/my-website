@@ -9,7 +9,9 @@ var RedisStore = require('connect-redis')(session);
 var config = require('../config');
 
 var app = express();
-var logger = Logger.getLogger('access')
+var logger = Logger.getLogger('access');
+var api_router_v1 = require('../api_router_v1');
+var web_router = require('../web_router');
 app.set('port', config['blog_port']);
 
 // view engine setup
@@ -36,10 +38,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
-app.use((req, res, next) => {
-  logger.info(req.session)
-  next()
-})
+app.use('/', web_router);
+app.use('/api/v1', api_router_v1);
 app.use(express.static(path.join(__dirname, '../public')));
 
 // catch 404 and forward to error handler

@@ -4,7 +4,7 @@ log4js.configure({
   appenders: {
     dateLog: {
       type: 'dateFile',
-      filename: config.log_dir + 'warn',
+      filename: config.log_dir + '/warn',
       pattern: '.yyyy-MM-dd.log',
       alwaysIncludePattern: true
     },

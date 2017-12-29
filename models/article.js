@@ -1,13 +1,15 @@
 /**
  *  文章模型
  */
-var { Schema, model } = require('mongoose');
+var mongoose = require('mongoose');
+var { Schema } = require('mongoose');
 var { ObjectId } = Schema;
 var config = require('../config');
 
 var ArticleSchema = new Schema ({
-  title: { type: String },
-  content: { type: String },
+  title: { type: String, unique: true },
+  content: { type: String, unique: true },
+  description: { type: String, unique: true },
   author_id: { type: ObjectId },
   top: { type: Boolean, default: false },
   good: { type: Boolean, default: false }, //优质内容
@@ -20,6 +22,7 @@ var ArticleSchema = new Schema ({
   last_reply_at: { type: Date, default: Date.now },
   content_is_html: { type: Boolean },
   category: { type: String },
+  tags: { type: Array },
   deleted: { type: Boolean, default: false }
 });
 
@@ -27,5 +30,4 @@ ArticleSchema.index({ create_at: -1 });
 ArticleSchema.index({ top: -1, last_reply_at: -1 });
 ArticleSchema.index({ author_id: 1, create_at: -1 });
 
-module.exports = model('Article', ArticleSchema);
-
+module.exports = mongoose.model('Article', ArticleSchema);

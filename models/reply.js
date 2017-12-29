@@ -1,7 +1,8 @@
 /**
  * 回复模型
  */
-var { model, Schema } = require('mongoose');
+var mongoose = require('mongoose');
+var { Schema } = require('mongoose');
 var { ObjectId } = Schema;
 
 var ReplySchema = new Schema({
@@ -17,4 +18,4 @@ var ReplySchema = new Schema({
 
 ReplySchema.index({ create_at: -1 });
 
-module.exports = model('Reply', ReplySchema);
+module.exports = mongoose.model('Reply', ReplySchema);

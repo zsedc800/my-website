@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  form(action="/api/v1/articles", method="post")
+    p
+      label 标题
+      input(type="text" name="title")
+    p
+      label 描述
+      textarea(name="description", cols="30", rows="10")
+    p
+      label 文章
+      textarea(name="content", cols="50", rows="10")
+    p
+      button(type="submit") 登录

@@ -1,3 +1,6 @@
+var bcrypt = require('bcryptjs');
+var moment = require('moment');
+moment.locale('zh-cn');
 exports.query_handle = function (name, callback) {
   return function (err, res) {
     if (err) {
@@ -21,6 +24,10 @@ exports.pick = function (obj = {}, props = []) {
   return target;
 }
 
+exports.bhash = (str, callback) => {
+  bcrypt.hash(str, 10, callback);
+};
+
 exports.isMongoId = (id) => {
 
-}
+};

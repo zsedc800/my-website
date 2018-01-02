@@ -6,9 +6,7 @@ var { Schema } = require('mongoose');
 var { ObjectId } = Schema;
 
 var ReplySchema = new Schema({
-  id: { type: ObjectId },
   comment_id: { type: ObjectId },
-  reply_id: { type: ObjectId },
   from_uid: { type: ObjectId },
   to_uid: { type: ObjectId },
   content: { type: String },

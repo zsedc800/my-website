@@ -6,7 +6,6 @@ var { Schema } = require('mongoose');
 var { ObjectId } = Schema;
 
 var CommentSchema = new Schema({
-  id: { type: ObjectId },
   article_id: { type: ObjectId },
   top_id: { type: ObjectId },
   from_uid: { type: ObjectId },

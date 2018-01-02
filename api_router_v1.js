@@ -18,5 +18,6 @@ router.post('/articles/update', articleController.update);
 // 评论
 router.post('/article/:article_id/comments', commentController.create);
 router.post('/reply/:comment_id/up', replyController.create);
+router.get('/article/:article_id/comments', commentController.getAll);
 
 module.exports = router;

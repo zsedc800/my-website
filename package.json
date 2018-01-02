@@ -15,6 +15,7 @@
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "express-session": "^1.15.6",
+    "istanbul": "^0.4.5",
     "jade": "~1.11.0",
     "jwt-simple": "^0.5.1",
     "log4js": "^2.4.1",
